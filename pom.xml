@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.idea-aedi.zoo</groupId>
+    <artifactId>zoo-example</artifactId>
+    <version>1.0.0</version>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <name>zoo-example</name>
+    <description>example for zoo-framework</description>
+    <url>http://maven.apache.org</url>
+    <modules>
+        <module>zoo-example-springboot</module>
+    </modules>
+
+
+    <properties>
+        <!-- java & maven 信息-->
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.test.skip>true</maven.test.skip>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- zoo artifact 组件版本 -->
+        <zoo-common-base.version>1.0.0</zoo-common-base.version>
+        <zoo-diy-artifact-mybatis-plus.version>1.0.0</zoo-diy-artifact-mybatis-plus.version>
+        <zoo-foundation.version>1.0.0</zoo-foundation.version>
+        <zoo-diy-artifact-tenant-like.version>1.0.0</zoo-diy-artifact-tenant-like.version>
+        <zoo-diy-artifact-auth-sa-token.version>1.0.0</zoo-diy-artifact-auth-sa-token.version>
+        <zoo-diy-artifact-logging-micrometer.version>1.0.0</zoo-diy-artifact-logging-micrometer.version>
+        <zoo-diy-artifact-apidoc-knife4j.version>1.0.0</zoo-diy-artifact-apidoc-knife4j.version>
+        <zoo-diy-artifact-websocket.version>1.0.0</zoo-diy-artifact-websocket.version>
+        <zoo-diy-artifact-sse.version>1.0.0</zoo-diy-artifact-sse.version>
+        <zoo-diy-artifact-liteflow.version>1.0.0</zoo-diy-artifact-liteflow.version>
+        <zoo-diy-artifact-openfeign.version>1.0.0</zoo-diy-artifact-openfeign.version>
+        <zoo-diy-artifact-grayscale-aspect.version>1.0.0</zoo-diy-artifact-grayscale-aspect.version>
+        <zoo-diy-artifact-generator.version>1.0.0</zoo-diy-artifact-generator.version>
+        <zoo-diy-artifact-shardingsphere.version>1.0.0</zoo-diy-artifact-shardingsphere.version>
+        <zoo-diy-artifact-dynamic-datasource.version>1.0.0</zoo-diy-artifact-dynamic-datasource.version>
+
+        <!-- zoo feature 组件版本 -->
+        <zoo-diy-feature-audit-log-api.version>1.0.0</zoo-diy-feature-audit-log-api.version>
+        <zoo-diy-feature-i18n-api.version>1.0.0</zoo-diy-feature-i18n-api.version>
+        <zoo-diy-feature-bpmn-api.version>1.0.0</zoo-diy-feature-bpmn-api.version>
+        <zoo-diy-feature-field-perm-api.version>1.0.0</zoo-diy-feature-field-perm-api.version>
+        <zoo-diy-feature-reqresp-encdec-api.version>1.0.0</zoo-diy-feature-reqresp-encdec-api.version>
+        <zoo-diy-feature-file-api.version>1.0.0</zoo-diy-feature-file-api.version>
+        <zoo-diy-feature-expression-engine-api.version>1.0.0</zoo-diy-feature-expression-engine-api.version>
+        <zoo-diy-feature-msg-api.version>1.0.0</zoo-diy-feature-msg-api.version>
+        <zoo-diy-feature-config-api.version>1.0.0</zoo-diy-feature-config-api.version>
+        <zoo-diy-feature-lite-feature-api.version>1.0.0</zoo-diy-feature-lite-feature-api.version>
+
+        <!-- 其他组件版本 -->
+        <redisson.version>3.17.0</redisson.version>
+        <minio.version>8.4.3</minio.version>
+        <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
+        <mybatis-plus.version>3.5.4.1</mybatis-plus.version>
+    </properties>
+
+    <!-- 依赖管理器 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <!-- redisson操作redis缓存 -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <!-- minio -->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/**</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>

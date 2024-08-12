@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.idea-aedi.zoo</groupId>
+        <artifactId>zoo-example</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>zoo-example-springboot</artifactId>
+    <packaging>pom</packaging>
+
+    <name>zoo-example-springboot</name>
+    <url>http://maven.apache.org</url>
+
+    <modules>
+        <module>zoo-example-springboot-mybatisplus</module>
+        <module>zoo-example-springboot-tenant-like</module>
+        <module>zoo-example-springboot-auth-sa-token</module>
+        <module>zoo-example-springboot-logging-micrometer</module>
+        <module>zoo-example-springboot-knife4j</module>
+        <module>zoo-example-springboot-audit-log-by-openapi</module>
+        <module>zoo-example-springboot-bpmn-by-flowable</module>
+        <module>zoo-example-springboot-websocket</module>
+        <module>zoo-example-springboot-sse</module>
+        <module>zoo-example-springboot-i18n-spring</module>
+        <module>zoo-example-springboot-field-perm-by-openapi</module>
+        <module>zoo-example-springboot-reqresp-encdec-by-springmvc</module>
+        <module>zoo-example-springboot-file-by-xfilestorage</module>
+        <module>zoo-example-springboot-expression-engine-by-qlexpress</module>
+        <module>zoo-example-springboot-liteflow</module>
+        <module>zoo-example-springboot-openfeign</module>
+        <module>zoo-example-springboot-grayscale-aspect</module>
+        <module>zoo-example-springboot-msg-sms-sms4j</module>
+        <module>zoo-example-springboot-msg-email-jakarta</module>
+        <module>zoo-example-springboot-config-nacos</module>
+        <module>zoo-example-springboot-generator</module>
+        <module>zoo-example-springboot-lite-feature-cs</module>
+        <module>zoo-example-springboot-shardingsphere</module>
+        <module>zoo-example-springboot-dynamic-datasource</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

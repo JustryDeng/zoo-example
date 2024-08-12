@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: demo
+
+zoo:
+  guide:
+    enable: true
+    show-detail: true
+
+logging:
+  level:
+    com.ideaaedi.zoo: debug
+    com.ideaaedi.zoo.commonbase.util.HttpUtil: error

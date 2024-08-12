@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: demo
+
+zoo:
+  guide:
+    enable: true
+    show-detail: true
+
+logging:
+  level:
+    com.ideaaedi.zoo: debug
+
+# 文件存储配置
+dromara:
+  x-file-storage:
+    # 默认使用的存储平台
+    default-platform: ${dromara.x-file-storage.minio[0].platform}
+    # 默认缩略图后缀
+    thumbnail-suffix: ".min.jpg"
+    minio:
+      - enable-storage: true  # 启用存储
+        platform: minio-local
+        access-key: minioadmin
+        secret-key: minioadmin
+        bucket-name: my-bucket
+        # minio服务地址
+        end-point: 'http://localhost:9000'
+        # 用于生成文件url的域名，注意以"/"结尾
+        domain: 'http://192.168.101.17:9000/${dromara.x-file-storage.minio[0].bucket-name}/'
+      - enable-storage: true  # 启用存储
+        platform: minio-xyz
+        access-key: minioadmin
+        secret-key: minioadmin
+        bucket-name: jd-bucket
+        # minio服务地址
+        end-point: 'http://localhost:9000'
+        # 用于生成文件url的域名，注意以"/"结尾
+        domain: 'http://localhost:9000/${dromara.x-file-storage.minio[1].bucket-name}/'

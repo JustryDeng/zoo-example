@@ -1,0 +1,25 @@
+zoo:
+  expression-engine:
+    # qlexpress默认配置
+    qlexpress:
+      # 是否自动往（每次执行的）脚本上下文中追加 spring的上下文
+      # 注：当从原上下文中获取不到变量时，再试着从spring上下文中获取变量
+      append-spring-context: true
+      # 限制（每次执行的）脚本最大能申请的数组长度
+      # 注：-1表示没有限制
+      max-arr-length: -1
+      # 设置全局脚本超时时间.
+      #注1：单位毫秒.
+      #注2：-1表示不限制时间
+      #注3：全局超时时间和脚本自身设置的执行超时时间，触发任意一个都将触发超时
+      global-timeout: -1
+      # 是否需要高精度计算
+      is-precise: true
+      # 是否使用逻辑短路特性
+      is-short-circuit: true
+      # 是否输出所有的跟踪信息（debug级别的日志）
+      is-trace: true
+
+logging:
+  level:
+    com.ql: debug

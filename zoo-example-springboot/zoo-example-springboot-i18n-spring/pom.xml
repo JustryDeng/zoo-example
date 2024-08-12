@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.idea-aedi.zoo</groupId>
+        <artifactId>zoo-example-springboot</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>zoo-example-springboot-i18n-spring</artifactId>
+    <packaging>jar</packaging>
+
+    <name>zoo-example-springboot-i18n</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.idea-aedi.zoo</groupId>
+            <artifactId>zoo-foundation</artifactId>
+            <version>${zoo-foundation.version}</version>
+        </dependency>
+
+        <!-- i18n api -->
+        <dependency>
+            <groupId>com.idea-aedi.zoo</groupId>
+            <artifactId>zoo-diy-feature-i18n-api</artifactId>
+            <version>${zoo-diy-feature-i18n-api.version}</version>
+        </dependency>
+
+        <!-- i18n impl -->
+        <dependency>
+            <groupId>com.idea-aedi.zoo</groupId>
+            <artifactId>zoo-diy-feature-i18n-by-spring</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

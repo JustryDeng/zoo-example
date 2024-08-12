@@ -1,0 +1,12 @@
+zoo:
+  guide:
+    enable: true
+    show-detail: false
+  # 请求响应加解密配置
+  req-resp-enc-dec:
+    # 响应加密配置
+    resp-encrypt:
+      enable: true
+      aes-key: 'APqb8TerU7KVz5Na'
+      include-exist-resp-headers:
+        - 'needEncryptResp'

@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: demo
+
+  ### 数据源配置
+  datasource:
+    url: jdbc:shardingsphere:classpath:sharding.yml
+    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+
+### mybatis-plus配置
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+### logging配置
+logging:
+  level:
+    root: info
+    #ShardingSphere-SQL: info
+    #ShardingSphere-SQL: warn
+    com.ideaaedi.zoo.example.springboot.shardingsphere.mapper: debug
+
+zoo:
+  guide:
+    enable: true
+    show-detail: true

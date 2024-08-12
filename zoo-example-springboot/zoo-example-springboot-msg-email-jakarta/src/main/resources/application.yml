@@ -1,0 +1,75 @@
+spring:
+  application:
+    name: demo
+
+logging:
+  level:
+    com.ideaaedi.zoo: debug
+
+zoo:
+  guide:
+    enable: true
+    show-detail: true
+  msg:
+    mail:
+      default-sender-id: ${jakarta.mail.senders[0].id} # 指定默认的邮件发送器
+
+jakarta:
+  mail:
+    senders:
+      - id: xyz # 邮件发送器唯一id（必须）
+        default-from: '渣渣无际<youremail1@qq.com>' # 默认的邮箱发件人（一般同username； 非必须，这里不填，则发邮件时需要主动指定）
+        #default-from: 'youremail1@qq.com' # 不想设置名字的话，就直接设置邮箱也可
+        ### 以下配置参数和spring.mail.xxx配置参数一样
+        # 配置 SMTP 服务器地址
+        host: smtp.qq.com
+        # SMTP服务器登录用户
+        username: youremail1@qq.com
+        # 配置密码，注意不是真正的密码，而是刚刚申请到的授权码
+        password: your1password
+        # 端口号465或587
+        port: 587
+        # 默认的邮件编码为UTF-8
+        default-encoding: UTF-8
+        # 配置SSL 加密工厂
+        properties: # 设置邮件超时时间防止服务器阻塞
+          timeout: 5000
+          connection-timeout: 5000
+          write-timeout: 5000
+          mail:
+            # 开启DEBUG模式
+            debug: true
+            smtp:
+              auth: true
+              starttls:
+                enable: true
+                required: true
+              socketFactoryClass: javax.net.ssl.SSLSocketFactory
+
+      - id: qwer # 邮件发送器唯一id（必须）
+        default-from: '邓二洋<youremail2@qq.com>' # 默认的邮箱发件人（一般同username； 非必须，这里不填，则发邮件时需要主动指定）
+        ### 以下配置参数和spring.mail.xxx配置参数一样
+        # 配置 SMTP 服务器地址
+        host: smtp.qq.com
+        # SMTP服务器登录用户
+        username: youremail2@qq.com
+        # 配置密码，注意不是真正的密码，而是刚刚申请到的授权码
+        password: your2password
+        # 端口号465或587
+        port: 587
+        # 默认的邮件编码为UTF-8
+        default-encoding: UTF-8
+        # 配置SSL 加密工厂
+        properties: # 设置邮件超时时间防止服务器阻塞
+          timeout: 5000
+          connection-timeout: 5000
+          write-timeout: 5000
+          mail:
+            # 开启DEBUG模式
+            debug: false
+            smtp:
+              auth: true
+              starttls:
+                enable: true
+                required: true
+              socketFactoryClass: javax.net.ssl.SSLSocketFactory

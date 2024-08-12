@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    dynamic:
+      # 设置默认的数据源或者数据源组,默认值即为master
+      primary: master
+      # 严格匹配数据源,默认false. true-未匹配到指定数据源时抛异常, false-使用默认数据源
+      strict: true
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+          username: root
+          password: dengshuai
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        slave_1:
+          url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+          username: root
+          password: dengshuai
+          driver-class-name: com.mysql.cj.jdbc.Driver
+#        slave_sharding:
+#          url: jdbc:shardingsphere:classpath:sharding.yml
+#          driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+
+### mybatis-plus配置
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+### logging配置
+logging:
+  level:
+    root: info
+    com.ideaaedi.zoo.example.springboot.dynamic.datasource: debug
+
+zoo:
+  guide:
+    enable: true
+    show-detail: true

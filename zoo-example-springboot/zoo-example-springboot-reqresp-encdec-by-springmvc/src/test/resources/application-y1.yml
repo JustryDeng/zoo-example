@@ -1,0 +1,12 @@
+zoo:
+  guide:
+    enable: true
+    show-detail: false
+  # 请求响应加解密配置
+  req-resp-enc-dec:
+    # 请求解密配置
+    req-decrypt:
+      enable: true
+      aes-key: 'APqb8TerU7KVz5Na'
+      include-hosts:
+        - '127.0.0.*'

@@ -1,0 +1,51 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+/logs/
+/springboot-tcp*/
+/visitor-resource/logs/
+/oauth2-server/logs/appName_IS_UNDEFINED/
+/vehicle-resource/logs/
+/gate/logs/gate/
+/visitor/logs/
+/oauth2/logs/
+/jd-your-biz/logs/
+/jd-sys/logs/
+/jd-user/logs/jd-user/
+/zoo-example/zoo-example-springboot/zoo-example-springboot-mybatisplus/logs/
+/zoo-example/zoo-example-springboot/zoo-example-springboot-tenant-like/logs/
+/zoo-example/zoo-example-springboot/zoo-example-springboot-auth-sa-token/logs/
+/zoo-release/zoo-spring-boo-jd/logs/
+/zoo-release/zoo-spring-boot-jd/logs/spring-boot-jd/
+/zoo-example/zoo-example-springboot/zoo-example-springboot-shardingsphere/logs/demo/
+/zoo-example/zoo-example-springboot/zoo-example-springboot-shardingsphere/logs/

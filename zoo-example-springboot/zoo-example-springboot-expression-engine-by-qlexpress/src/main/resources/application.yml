@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: demo
+
+zoo:
+  guide:
+    enable: true
+    show-detail: true
+
+  # 如果不需要使用到@ExpressionReplacer注解的话，你可以关闭它（默认为开启）
+  # @ExpressionReplacer注解允许你可选的对被标注方法进行逻辑替换（以执行表达式的方式）
+  expression-engine:
+    exp-replacer-enable: true # 默认为true
+
+
+logging:
+  level:
+    com.ideaaedi.zoo: debug
+

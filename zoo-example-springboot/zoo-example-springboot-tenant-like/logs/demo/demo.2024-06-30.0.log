@@ -1,0 +1,382 @@
+2024-06-30 23:45:11.138 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:45:11.168 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 13208 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:45:11.168 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:45:11.170 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:45:12.412 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:45:13.933 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-06-30 23:45:13.964 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-06-30 23:45:13.992 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 3.303 seconds (process running for 4.212)
+2024-06-30 23:45:14.836 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-06-30 23:45:15.950 ERROR demo [] main com.zaxxer.hikari.pool.HikariPool:594 HikariPool-1 - Exception during pool initialization.
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:159)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:117)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:345)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:89)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:64)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:333)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:81)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy127.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	at jdk.proxy2/jdk.proxy2.$Proxy75.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:166)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
+	at jdk.proxy2/jdk.proxy2.$Proxy81.selectList(Unknown Source)
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:406)
+	at com.baomidou.mybatisplus.extension.service.IService.list(IService.java:427)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:699)
+	at com.ideaaedi.zoo.example.springboot.tenantlike.service.impl.UserInfoLikeServiceImpl$$SpringCGLIB$$0.list(<generated>)
+	at com.ideaaedi.zoo.example.springboot.tenantlike.BasicTest.list(BasicTest.java:33)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	... 119 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
+	... 122 common frames omitted
+2024-06-30 23:45:58.445 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:45:58.481 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 24056 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:45:58.482 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:45:58.482 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:45:59.683 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:46:00.709 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-06-30 23:46:00.717 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-06-30 23:46:00.733 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 2.734 seconds (process running for 3.748)
+2024-06-30 23:46:01.387 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-06-30 23:46:01.605 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@639948a2
+2024-06-30 23:46:01.607 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-06-30 23:46:01.613 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id,name,gender,deleted FROM user_info_like WHERE deleted=0
+2024-06-30 23:46:01.634 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-06-30 23:46:01.680 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-06-30 23:46:01.721 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-06-30 23:46:01.736 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-06-30 23:47:14.019 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:47:14.050 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 3884 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:47:14.051 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:47:14.053 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:47:15.159 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:47:16.290 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-06-30 23:47:16.301 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-06-30 23:47:16.323 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 2.74 seconds (process running for 3.593)
+2024-06-30 23:47:16.986 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-06-30 23:47:17.121 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@703cb756
+2024-06-30 23:47:17.122 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-06-30 23:47:17.127 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id,name,gender,deleted FROM user_info_like WHERE deleted=0
+2024-06-30 23:47:17.149 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-06-30 23:47:17.170 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-06-30 23:47:17.218 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-06-30 23:47:17.225 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-06-30 23:47:46.276 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:47:46.323 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 3560 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:47:46.324 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:47:46.326 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:47:47.656 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:47:48.979 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-06-30 23:47:48.991 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-06-30 23:47:49.014 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 3.173 seconds (process running for 4.075)
+2024-06-30 23:47:49.739 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-06-30 23:47:49.855 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@12404f9d
+2024-06-30 23:47:49.857 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-06-30 23:47:49.863 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id,tenant,name,gender,deleted FROM user_info_like WHERE deleted=0
+2024-06-30 23:47:49.881 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-06-30 23:47:49.901 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-06-30 23:47:49.950 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-06-30 23:47:49.958 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-06-30 23:48:46.374 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:48:46.402 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 26464 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:48:46.402 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:48:46.403 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:48:47.695 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:51:03.275 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:51:03.306 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 18908 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:51:03.307 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:51:03.308 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:51:04.873 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:51:21.966 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:51:21.992 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 25288 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:51:21.992 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:51:21.993 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:55:21.047 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:55:21.073 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 20700 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:55:21.074 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:55:21.074 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:55:22.199 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:55:23.470 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-06-30 23:55:23.478 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-06-30 23:55:23.499 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 2.864 seconds (process running for 3.655)
+2024-06-30 23:55:24.089 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-06-30 23:55:24.193 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5897aae1
+2024-06-30 23:55:24.195 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-06-30 23:55:24.201 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id,tenant,name,gender,deleted FROM user_info_like WHERE deleted=0
+2024-06-30 23:55:24.228 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-06-30 23:55:24.248 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-06-30 23:55:24.291 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-06-30 23:55:24.296 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-06-30 23:56:21.351 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:56:21.382 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 12352 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:56:21.382 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:56:21.383 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:57:37.987 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:58:03.049 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-06-30 23:58:03.053 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-06-30 23:58:03.063 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 102.142 seconds (process running for 103.026)
+2024-06-30 23:58:03.683 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-06-30 23:58:03.801 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@dd9de63
+2024-06-30 23:58:03.802 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-06-30 23:58:03.809 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id,tenant,name,gender,deleted FROM user_info_like WHERE deleted=0
+2024-06-30 23:58:03.834 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-06-30 23:58:03.854 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-06-30 23:58:03.900 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-06-30 23:58:03.906 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-06-30 23:58:07.953 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:58:07.992 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 14656 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:58:07.992 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:58:07.993 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:58:16.147 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:58:33.351 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:103 tenantTables -> []
+2024-06-30 23:58:47.134 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-06-30 23:58:47.143 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-06-30 23:58:47.174 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 39.652 seconds (process running for 40.548)
+2024-06-30 23:59:38.794 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-06-30 23:59:38.825 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 5160 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-06-30 23:59:38.825 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-06-30 23:59:38.826 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-06-30 23:59:53.559 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:101 tenantTables -> []

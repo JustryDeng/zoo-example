@@ -1,0 +1,55 @@
+props:
+  # sql-show设置为true后，还可以进一步结合logging.level.ShardingSphere-SQL=warn的日志级别来控制是否打印，logging.level.ShardingSphere-SQL日志级别默认为true
+  sql-show: true # 是否展示sql
+  sql-simple: false # 如果展示sql的话，是否展示简化的sql（true-简化的sql；false-实际sql）
+
+dataSources:
+  ds0:
+    jdbcUrl: jdbc:mysql://localhost:3306/demo?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: root
+    password: dengshuai
+    #即：spring.datasource.type
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+rules: # 参考官方文档：https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-jdbc/yaml-config/rules/sharding/
+- !SINGLE
+  tables:
+    # 加载全部单表
+    - "*.*"
+- !SHARDING
+  tables: # 如果需要多个分表的话，多几个类似于trans_record表的配置就行
+    trans_record: # 逻辑表名(如：trans_record_202210、trans_record_202211之类的属于实际表名，那么trans_record就属于逻辑表名)
+      # 指定所有数据存储节点：数据源.实际表名
+      # 注：范围一般要等于或者大于你实际要用到的实际表名范围
+      # 注：查询时，如果不指定sharding-column的值或sharding-column的值范围，那么会全查这里列出来的所有表（即：ds0.trans_record_202201 - ds0.trans_record_210012）
+      # 注：actualDataNodes指定的表，需要在程序启动前提前创建好
+      #actualDataNodes: ds0.trans_record_$->{2024..2100}${(1..12).collect{t ->t.toString().padLeft(2,'0')}}
+      actualDataNodes: ds0.trans_record_$->{2024..2024}${(1..12).collect{t ->t.toString().padLeft(2,'0')}}
+      tableStrategy: # 分表策略
+        standard: # standard-用于单分片键的标准分片场景， complex-用于多分片键的复合分片场景，hint-Hint分片策略, none-不分片
+          shardingColumn: trans_date # 指定trans_record表中的trans_date列作为分片列
+          shardingAlgorithmName: trans-date-algorithm # 指定使用的分片算法（自定义名称即可， 只要对的上就行）
+    pay_record:
+      #actualDataNodes: ds0.pay_record_$->{2024..2100}${(1..12).collect{t ->t.toString().padLeft(2,'0')}}
+      actualDataNodes: ds0.pay_record_$->{2024..2024}${(1..12).collect{t ->t.toString().padLeft(2,'0')}}
+      tableStrategy:
+        standard:
+          shardingColumn: pay_date
+          shardingAlgorithmName: pay-date-algorithm
+  # 分片算法配置
+  shardingAlgorithms: # 如果需要配置多个算法的话，多几个类似于trans-date-algorithm算法的配置就行
+    trans-date-algorithm: # 分片算法名称（自定义即可）
+      type: yyyyMM_SHARDING # 算法类型. 与algorithmClassName指定的算法实现类的getType()方法的返回值保持一致即可
+      props:
+        strategy: standard
+        algorithmClassName: com.ideaaedi.zoo.diy.artifact.shardingsphere.algorithm.YyyyMmShardingAlgorithm  # 指定算法实现类
+    pay-date-algorithm: # 分片算法名称（自定义即可）
+      type: yyyyMM_SHARDING
+      props:
+        strategy: standard
+        algorithmClassName: com.ideaaedi.zoo.diy.artifact.shardingsphere.algorithm.YyyyMmShardingAlgorithm
+  # 绑定表，避免笛卡尔积查询。 sharding对相互绑定的一批表有些要求，如：分库节点要对应都有、分表节点要对应都有、使用相同的分库分表算法，详见{@link ShardingRule#isValidBindingTableConfiguration}
+  bindingTables:
+    - trans_record,pay_record
+

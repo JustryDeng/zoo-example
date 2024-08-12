@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ideaaedi.zoo.example.springboot.dynamic.datasource.mapper.DemoMapper">
+
+    <select id="listOne" resultType="com.ideaaedi.zoo.example.springboot.dynamic.datasource.entity.po.DemoPO">
+        SELECT
+            ui.id as userId,
+            ui.`name` as userName,
+            tr.id as transId,
+            tr.trans_date as transDate,
+            tr.remark as transRemark
+        FROM
+            `trans_record` AS tr
+                INNER JOIN user_info AS ui ON tr.user_id = ui.id
+    </select>
+
+    <select id="listTwo" resultType="com.ideaaedi.zoo.example.springboot.dynamic.datasource.entity.po.DemoPO">
+        SELECT
+            ui.id as userId,
+            ui.`name` as userName,
+            tr.id as transId,
+            tr.trans_date as transDate,
+            tr.remark as transRemark
+        FROM
+            `trans_record` AS tr
+                INNER JOIN user_info AS ui ON tr.user_id = ui.id
+        WHERE tr.trans_date >= #{from} and tr.trans_date <![CDATA[<=]]> #{to}
+    </select>
+
+
+    <select id="listTwo2" resultType="com.ideaaedi.zoo.example.springboot.dynamic.datasource.entity.po.DemoPO">
+        SELECT
+            ui.id as userId,
+            ui.`name` as userName,
+            tr.id as transId,
+            tr.trans_date as transDate,
+            tr.remark as transRemark
+        FROM
+            `trans_record` AS tr
+                INNER JOIN user_info AS ui ON tr.user_id = ui.id
+        WHERE tr.remark=#{remark}
+    </select>
+
+
+    <select id="listThree" resultType="com.ideaaedi.zoo.example.springboot.dynamic.datasource.entity.po.DemoPO">
+        SELECT
+            tr.id AS transId,
+            tr.trans_date AS transDate,
+            tr.remark AS transRemark,
+            pr.id as payId,
+            pr.pay_date as payDate,
+            pr.amount as payAmount
+        FROM
+            `trans_record` AS tr
+                INNER JOIN pay_record AS pr ON tr.id = pr.trans_id
+    </select>
+
+    <select id="listFour" resultType="com.ideaaedi.zoo.example.springboot.dynamic.datasource.entity.po.DemoPO">
+        SELECT
+            tr.id AS transId,
+            tr.trans_date AS transDate,
+            tr.remark AS transRemark,
+            pr.id as payId,
+            pr.pay_date as payDate,
+            pr.amount as payAmount
+        FROM
+            `trans_record` AS tr
+                INNER JOIN pay_record AS pr ON tr.id = pr.trans_id
+        WHERE
+            tr.trans_date >= #{transRecordFrom} and tr.trans_date <![CDATA[<=]]> #{transRecordTo}
+            and
+            pr.pay_date >= #{payRecordFrom} and pr.pay_date <![CDATA[<=]]> #{payRecordTo}
+    </select>
+
+    <select id="listFive" resultType="com.ideaaedi.zoo.example.springboot.dynamic.datasource.entity.po.DemoPO">
+        SELECT
+            ui.id AS userId,
+            ui.`name` AS userName,
+            tr.id AS transId,
+            tr.trans_date AS transDate,
+            tr.remark AS transRemark,
+            pr.id AS payId,
+            pr.pay_date AS payDate,
+            pr.amount AS payAmount
+        FROM
+            `trans_record` AS tr
+            INNER JOIN pay_record AS pr ON tr.id = pr.trans_id
+            INNER JOIN user_info AS ui ON tr.user_id = ui.id
+    </select>
+
+    <select id="listSix" resultType="com.ideaaedi.zoo.example.springboot.dynamic.datasource.entity.po.DemoPO">
+        SELECT
+            ui.id AS userId,
+            ui.`name` AS userName,
+            tr.id AS transId,
+            tr.trans_date AS transDate,
+            tr.remark AS transRemark,
+            pr.id AS payId,
+            pr.pay_date AS payDate,
+            pr.amount AS payAmount
+        FROM
+            `trans_record` AS tr
+                INNER JOIN pay_record AS pr ON tr.id = pr.trans_id
+                INNER JOIN user_info AS ui ON tr.user_id = ui.id
+        WHERE
+            tr.trans_date >= #{transRecordFrom} and tr.trans_date <![CDATA[<=]]> #{transRecordTo}
+          and
+            pr.pay_date >= #{payRecordFrom} and pr.pay_date <![CDATA[<=]]> #{payRecordTo}
+    </select>
+</mapper>

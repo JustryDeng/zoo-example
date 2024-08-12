@@ -1,0 +1,16 @@
+zoo:
+  # 打印组件概览信息
+  guide:
+    enable: true
+    show-detail: true
+  # 在生成AuditInfoDTO对象给其赋请求参数、响应结果的值时，你可以通过'zoo.audit-log.ignore-request-types'
+  # 或
+  # 'zoo.audit-log.ignore-response-types'来设置忽略哪些类型的赋值，该值会被占位符'<Hit-Ignore-Response-Type>'顶替
+  audit-log:
+    ignore-request-types:
+      - jakarta.servlet.http.HttpServletRequest
+      - jakarta.servlet.http.HttpServletResponse
+      - org.springframework.web.multipart.MultipartFile
+      - '[B' # 忽略 byte[]
+    ignore-response-types:
+      - '[B' # 忽略 byte[]

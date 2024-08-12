@@ -1,0 +1,811 @@
+2024-07-01 00:00:01.610 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 00:00:01.621 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 00:00:01.634 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 23.276 seconds (process running for 24.169)
+2024-07-01 00:00:02.268 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-07-01 00:00:02.392 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37c74e4e
+2024-07-01 00:00:02.394 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-07-01 00:00:02.401 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id,tenant,name,gender,deleted FROM user_info_like WHERE deleted=0
+2024-07-01 00:00:02.440 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 00:00:02.462 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-07-01 00:00:02.512 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-07-01 00:00:02.518 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-07-01 00:11:05.572 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 00:11:05.601 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 19376 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 00:11:05.601 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 00:11:05.602 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 00:17:54.164 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:101 tenantTables -> []
+2024-07-01 00:17:55.627 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 00:17:55.655 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 00:17:55.679 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 410.525 seconds (process running for 411.486)
+2024-07-01 00:23:19.032 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 00:23:19.062 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 3828 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 00:23:19.063 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 00:23:19.063 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 00:23:24.648 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:101 tenantTables -> []
+2024-07-01 00:24:50.709 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 00:24:50.715 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 00:24:50.730 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 92.128 seconds (process running for 93.052)
+2024-07-01 00:24:55.556 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 00:24:55.583 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 20436 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 00:24:55.584 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 00:24:55.584 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 00:24:56.649 WARN  demo [] main o.s.w.context.support.GenericWebApplicationContext:592 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userInfoLikeServiceImpl': Unsatisfied dependency expressed through field 'baseMapper': Error creating bean with name 'userInfoLikeMapper' defined in file [D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like\target\classes\com\ideaaedi\zoo\example\springboot\tenantlike\mapper\UserInfoLikeMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+2024-07-01 00:24:56.661 INFO  demo [] main o.s.b.a.logging.ConditionEvaluationReportLogger:82 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-01 00:24:56.699 ERROR demo [] main o.s.b.diagnostics.LoggingFailureAnalysisReporter:40 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   userInfoLikeServiceImpl (field protected com.baomidou.mybatisplus.core.mapper.BaseMapper com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.baseMapper)
+      ↓
+   userInfoLikeMapper defined in file [D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like\target\classes\com\ideaaedi\zoo\example\springboot\tenantlike\mapper\UserInfoLikeMapper.class]
+┌─────┐
+|  com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-07-01 00:24:56.710 ERROR demo [] main o.springframework.test.context.TestContextManager:245 Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.ideaaedi.zoo.example.springboot.tenantlike.BasicTest@6b1b19cf]
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@40709f9 testClass = com.ideaaedi.zoo.example.springboot.tenantlike.BasicTest, locations = [], classes = [com.ideaaedi.zoo.example.springboot.tenantlike.ExampleSpringbootTenantLikeApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceLocations = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@31fa1761, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66f57048, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@1151e434, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@9da1, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@51c668e3, org.springframework.boot.test.context.SpringBootTestAnnotation@f9baaf3], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:142)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:241)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:138)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:382)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:377)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:376)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:289)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:288)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:278)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:277)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userInfoLikeServiceImpl': Unsatisfied dependency expressed through field 'baseMapper': Error creating bean with name 'userInfoLikeMapper' defined in file [D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like\target\classes\com\ideaaedi\zoo\example\springboot\tenantlike\mapper\UserInfoLikeMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:712)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:692)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:481)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:59)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:47)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1386)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:543)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:184)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:118)
+	... 72 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userInfoLikeMapper' defined in file [D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like\target\classes\com\ideaaedi\zoo\example\springboot\tenantlike\mapper\UserInfoLikeMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1663)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1412)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:709)
+	... 97 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration': Failed to instantiate [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:324)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:312)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1324)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1161)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	... 110 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:110)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:321)
+	... 129 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration': Requested bean is currently in creation: Is there an unresolvable circular reference?
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.beforeSingletonCreation(DefaultSingletonBeanRegistry.java:355)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:227)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1324)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1161)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1621)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1585)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1453)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1363)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory$DependencyObjectProvider.getIfAvailable(DefaultListableBeanFactory.java:2044)
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration.<init>(MybatisPlusAutoConfiguration.java:145)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:210)
+	... 131 common frames omitted
+2024-07-01 00:27:01.401 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 00:27:01.431 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 18260 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 00:27:01.431 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 00:27:01.432 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 00:27:05.154 WARN  demo [] main o.s.w.context.support.GenericWebApplicationContext:592 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userInfoLikeServiceImpl': Unsatisfied dependency expressed through field 'baseMapper': Error creating bean with name 'userInfoLikeMapper' defined in file [D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like\target\classes\com\ideaaedi\zoo\example\springboot\tenantlike\mapper\UserInfoLikeMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+2024-07-01 00:27:05.161 INFO  demo [] main o.s.b.a.logging.ConditionEvaluationReportLogger:82 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-01 00:27:05.181 ERROR demo [] main o.s.b.diagnostics.LoggingFailureAnalysisReporter:40 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   userInfoLikeServiceImpl (field protected com.baomidou.mybatisplus.core.mapper.BaseMapper com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.baseMapper)
+      ↓
+   userInfoLikeMapper defined in file [D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like\target\classes\com\ideaaedi\zoo\example\springboot\tenantlike\mapper\UserInfoLikeMapper.class]
+┌─────┐
+|  com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-07-01 00:27:05.186 ERROR demo [] main o.springframework.test.context.TestContextManager:245 Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.ideaaedi.zoo.example.springboot.tenantlike.BasicTest@307e4c44]
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@4aa2877c testClass = com.ideaaedi.zoo.example.springboot.tenantlike.BasicTest, locations = [], classes = [com.ideaaedi.zoo.example.springboot.tenantlike.ExampleSpringbootTenantLikeApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceLocations = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@31fa1761, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@66f57048, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@1151e434, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@9da1, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@51c668e3, org.springframework.boot.test.context.SpringBootTestAnnotation@f9baaf3], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:142)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:241)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:138)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:382)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:377)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:376)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:289)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:288)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:278)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:277)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userInfoLikeServiceImpl': Unsatisfied dependency expressed through field 'baseMapper': Error creating bean with name 'userInfoLikeMapper' defined in file [D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like\target\classes\com\ideaaedi\zoo\example\springboot\tenantlike\mapper\UserInfoLikeMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:712)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:692)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:481)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:59)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:47)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1386)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:543)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:184)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:118)
+	... 72 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userInfoLikeMapper' defined in file [D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like\target\classes\com\ideaaedi\zoo\example\springboot\tenantlike\mapper\UserInfoLikeMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1663)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1412)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:709)
+	... 97 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration': Failed to instantiate [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:324)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:312)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1324)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1161)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	... 110 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:110)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:321)
+	... 129 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration': Requested bean is currently in creation: Is there an unresolvable circular reference?
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.beforeSingletonCreation(DefaultSingletonBeanRegistry.java:355)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:227)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1324)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1161)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1621)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1585)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1453)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1363)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory$DependencyObjectProvider.getIfAvailable(DefaultListableBeanFactory.java:2044)
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration.<init>(MybatisPlusAutoConfiguration.java:145)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:210)
+	... 131 common frames omitted
+2024-07-01 00:27:24.587 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 00:27:24.615 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 23172 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 00:27:24.615 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 00:27:24.616 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 00:27:53.294 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:101 tenantTables -> []
+2024-07-01 00:27:57.649 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 00:27:57.677 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 2716 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 00:27:57.678 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 00:27:57.678 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 00:28:03.597 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:101 tenantTables -> []
+2024-07-01 00:28:05.009 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 00:28:05.025 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 00:28:05.047 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 7.835 seconds (process running for 8.773)
+2024-07-01 00:53:59.297 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 00:53:59.320 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 16328 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 00:53:59.321 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 00:53:59.322 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 00:54:01.365 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 00:54:01.372 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 00:54:01.500 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:102 tenantTables -> ["user_info_like"]
+2024-07-01 00:54:01.513 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 2.589 seconds (process running for 3.374)
+2024-07-01 00:54:02.014 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-07-01 00:54:02.138 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@563c3aca
+2024-07-01 00:54:02.138 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-07-01 00:54:02.144 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id,tenant,name,gender,deleted FROM user_info_like WHERE deleted=0
+2024-07-01 00:54:02.170 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 00:54:02.189 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-07-01 00:54:02.232 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-07-01 00:54:02.239 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-07-01 00:58:22.840 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 00:58:22.864 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 1276 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 00:58:22.865 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 00:58:22.865 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 00:58:23.836 INFO  demo [] main c.i.z.d.f.t.ZooTenantLikeAutoConfiguration:94 enable mybatis-plus interceptors -> [tenant.com.ideaaedi.zoo.diy.artifact.tenantlike.LikeTenantLineInnerInterceptor, com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor].
+2024-07-01 00:58:25.038 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 00:58:25.055 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 00:58:25.197 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:102 tenantTables -> ["user_info_like"]
+2024-07-01 00:58:25.210 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 2.773 seconds (process running for 3.557)
+2024-07-01 00:58:25.695 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:45 original SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 00:58:25.725 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:85 SQL to parse, SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 00:59:23.419 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 00:59:23.444 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 14108 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 00:59:23.444 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 00:59:23.445 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 00:59:24.426 INFO  demo [] main c.i.z.d.f.t.ZooTenantLikeAutoConfiguration:94 enable mybatis-plus interceptors -> [LikeTenantLineInnerInterceptor, PaginationInnerInterceptor].
+2024-07-01 00:59:25.608 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 00:59:25.614 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 00:59:25.850 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:102 tenantTables -> ["user_info_like"]
+2024-07-01 00:59:25.873 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 2.836 seconds (process running for 3.628)
+2024-07-01 00:59:26.441 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:45 original SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 00:59:26.470 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:85 SQL to parse, SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:00:47.984 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 01:00:48.011 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 11000 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 01:00:48.012 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 01:00:48.012 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 01:00:48.965 INFO  demo [] main c.i.z.d.f.t.ZooTenantLikeAutoConfiguration:94 enable mybatis-plus interceptors -> [LikeTenantLineInnerInterceptor, PaginationInnerInterceptor].
+2024-07-01 01:00:50.234 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 01:00:50.250 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 01:00:50.349 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:102 tenantTables -> ["user_info_like"]
+2024-07-01 01:00:50.360 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 2.767 seconds (process running for 3.552)
+2024-07-01 01:00:50.906 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:45 original SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:00:50.935 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:85 SQL to parse, SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:00:50.944 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:98 parse the finished SQL: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,%'
+2024-07-01 01:00:50.949 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-07-01 01:00:51.057 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e62e227
+2024-07-01 01:00:51.059 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-07-01 01:00:51.066 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,%'
+2024-07-01 01:00:51.084 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 01:00:51.105 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-07-01 01:00:51.159 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-07-01 01:00:51.175 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-07-01 01:02:50.387 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 01:02:50.415 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 8856 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 01:02:50.416 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 01:02:50.417 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 01:02:51.540 INFO  demo [] main c.i.z.d.f.t.ZooTenantLikeAutoConfiguration:94 enable mybatis-plus interceptors -> [LikeTenantLineInnerInterceptor, PaginationInnerInterceptor].
+2024-07-01 01:02:53.137 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 01:02:53.159 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 01:05:26.374 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:105 tenantTables -> ["user_info_like"]
+2024-07-01 01:05:26.383 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 156.427 seconds (process running for 157.379)
+2024-07-01 01:11:25.642 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 01:11:25.672 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 24668 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 01:11:25.673 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 01:11:25.673 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 01:11:26.788 INFO  demo [] main c.i.z.d.f.t.ZooTenantLikeAutoConfiguration:94 enable mybatis-plus interceptors -> [LikeTenantLineInnerInterceptor, PaginationInnerInterceptor].
+2024-07-01 01:11:28.321 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 01:11:28.335 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 01:11:48.480 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:112 tenantTables -> ["user_info_like"]
+2024-07-01 01:11:48.491 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 23.264 seconds (process running for 24.146)
+2024-07-01 01:15:57.296 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 01:15:57.326 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 20432 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 01:15:57.327 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 01:15:57.328 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 01:15:58.496 INFO  demo [] main c.i.z.d.f.t.ZooTenantLikeAutoConfiguration:94 enable mybatis-plus interceptors -> [LikeTenantLineInnerInterceptor, PaginationInnerInterceptor].
+2024-07-01 01:16:00.131 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 01:16:00.154 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 01:16:02.709 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:113 tenantTables -> ["user_info_like"]
+2024-07-01 01:16:02.723 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 5.857 seconds (process running for 6.745)
+2024-07-01 01:16:07.200 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:45 original SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:16:07.234 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:85 SQL to parse, SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:16:07.243 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:98 parse the finished SQL: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,%'
+2024-07-01 01:16:07.248 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-07-01 01:16:07.371 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a47f0be
+2024-07-01 01:16:07.373 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-07-01 01:16:07.379 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,%'
+2024-07-01 01:16:07.397 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 01:16:07.423 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-07-01 01:16:07.469 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-07-01 01:16:07.476 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-07-01 01:21:57.919 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 01:21:57.950 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 3620 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 01:21:57.951 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 01:21:57.951 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 01:21:58.868 INFO  demo [] main c.i.z.d.f.t.ZooTenantLikeAutoConfiguration:94 enable mybatis-plus interceptors -> [LikeTenantLineInnerInterceptor, PaginationInnerInterceptor].
+2024-07-01 01:21:59.977 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 01:21:59.989 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 01:22:00.093 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:113 tenantTables -> ["user_info_like"]
+2024-07-01 01:22:00.106 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 2.604 seconds (process running for 3.391)
+2024-07-01 01:22:00.613 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:45 original SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:22:00.644 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:85 SQL to parse, SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:22:00.654 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:98 parse the finished SQL: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,%'
+2024-07-01 01:22:00.660 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-07-01 01:22:00.771 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b529d7e
+2024-07-01 01:22:00.773 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-07-01 01:22:00.784 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,%'
+2024-07-01 01:22:00.808 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 01:22:00.827 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-07-01 01:22:00.879 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:45 original SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:22:00.885 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:85 SQL to parse, SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:22:00.887 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:98 parse the finished SQL: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,2,%'
+2024-07-01 01:22:00.888 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,2,%'
+2024-07-01 01:22:00.889 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 01:22:00.892 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 2
+2024-07-01 01:22:00.899 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:45 original SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:22:00.902 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:85 SQL to parse, SQL: SELECT  id,tenant,name,gender,deleted  FROM user_info_like  WHERE deleted=0
+2024-07-01 01:22:00.903 DEBUG demo [] main c.i.z.d.f.t.tenant.LikeTenantLineInnerInterceptor:98 parse the finished SQL: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,2,3,%'
+2024-07-01 01:22:00.904 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,2,3,%'
+2024-07-01 01:22:00.904 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 01:22:00.905 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 1
+2024-07-01 01:22:00.916 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-07-01 01:22:00.924 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.
+2024-07-01 01:24:03.399 INFO  demo [] background-preinit org.hibernate.validator.internal.util.Version:21 HV000001: Hibernate Validator 8.0.0.Final
+2024-07-01 01:24:03.424 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:51 Starting BasicTest using Java 17.0.3.1 with PID 22936 (started by 13548 in D:\working\spring-cloud-jd\zoo-example\zoo-example-springboot\zoo-example-springboot-tenant-like)
+2024-07-01 01:24:03.425 DEBUG demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:52 Running with Spring Boot v3.0.2, Spring v6.0.4
+2024-07-01 01:24:03.425 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:630 No active profile set, falling back to 1 default profile: "default"
+2024-07-01 01:24:04.360 INFO  demo [] main c.i.z.d.f.t.ZooTenantLikeAutoConfiguration:94 enable mybatis-plus interceptors -> [LikeTenantLineInnerInterceptor, PaginationInnerInterceptor].
+2024-07-01 01:24:05.744 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:51 Integrate component -> 01.zoo-diy-artifact-tenant-like
+2024-07-01 01:24:05.776 INFO  demo [] main com.ideaaedi.zoo.foundation.DIYGuidePrinter:90 
+------------------------ 01.zoo-diy-artifact-tenant-like guide ------------------------
+[instruction]
+1.此组件提供基于mybatis-plus的多租户能力支持
+
+[manual]
+1. 租户字段tenant
+   此组件定义的租户列为tenant，字段类型为字符串（而非mybatis-plus默认的整数类型的tenant_id）
+   注：如果你的数据库租户字段名为tenant_id，那么可以修改BaseConstant.TENANT_PROPERTY_NAME的值为tenantId
+2.此组件多租户的隔离实现，基于like，而非基于equals，故此组件不仅支持租户横向隔离，还支持租户内数据层级纵向隔离
+
+[contacts]
+作者邮箱: 13548417409@163.com
+
+[links]
+参考实现: https://baomidou.com/plugins/tenant/
+
+2024-07-01 01:24:05.924 INFO  demo [] main c.i.z.d.f.tenantlike.holder.MybatisPlusInfoHolder:113 tenantTables -> ["user_info_like"]
+2024-07-01 01:24:05.942 INFO  demo [] main c.i.zoo.example.springboot.tenantlike.BasicTest:57 Started BasicTest in 2.939 seconds (process running for 3.725)
+2024-07-01 01:24:06.529 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:110 HikariPool-1 - Starting...
+2024-07-01 01:24:06.653 INFO  demo [] main com.zaxxer.hikari.pool.HikariPool:565 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3664c596
+2024-07-01 01:24:06.654 INFO  demo [] main com.zaxxer.hikari.HikariDataSource:123 HikariPool-1 - Start completed.
+2024-07-01 01:24:06.661 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,%'
+2024-07-01 01:24:06.680 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 01:24:06.697 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 3
+2024-07-01 01:24:06.744 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,2,%'
+2024-07-01 01:24:06.746 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 01:24:06.748 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 2
+2024-07-01 01:24:06.758 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==>  Preparing: SELECT id, tenant, name, gender, deleted FROM user_info_like WHERE deleted = 0 AND tenant LIKE '1,2,3,%'
+2024-07-01 01:24:06.759 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 ==> Parameters: 
+2024-07-01 01:24:06.761 DEBUG demo [] main c.i.z.e.s.t.mapper.UserInfoLikeMapper.selectList:135 <==      Total: 1
+2024-07-01 01:24:06.774 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:350 HikariPool-1 - Shutdown initiated...
+2024-07-01 01:24:06.781 INFO  demo [] SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource:352 HikariPool-1 - Shutdown completed.

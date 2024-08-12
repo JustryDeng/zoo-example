@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: demo
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    username: root
+    password: dengshuai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+
+zoo:
+  guide:
+    enable: true
+    show-detail: true
+
+logging:
+  level:
+    com.ideaaedi.zoo: debug
+
+liteflow:
+  rule-source-ext-data-map:
+    pollingEnabled: true
+    # 临时把轮询数据库的间隔改为10秒，以便测试时不等太久
+    pollingIntervalSeconds: 5
+    pollingStartSeconds: 5

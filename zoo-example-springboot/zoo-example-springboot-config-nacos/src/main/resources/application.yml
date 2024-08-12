@@ -1,0 +1,29 @@
+zoo:
+  guide:
+    enable: true
+    show-detail: true
+
+logging:
+  level:
+    com.ideaaedi.zoo: debug
+
+spring:
+  application:
+    name: demo
+  config:
+    import:
+      # 要导入的nacos data-id，如：demo-default.yml
+      - optional:nacos:${spring.application.name}-${spring.profiles.active:default}.yml
+  cloud:
+    nacos:
+      config:
+        # nacos地址及账密
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+        # 命名空间id
+        namespace: ns-demo
+        # 分组
+        group: DEFAULT_GROUP
+        # 配置文件内容格式
+        file-extension: yaml

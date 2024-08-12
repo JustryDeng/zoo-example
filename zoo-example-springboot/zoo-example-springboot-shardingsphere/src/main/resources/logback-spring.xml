@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty name="appName" scope="context" source="spring.application.name"/>
+    <springProperty name="logFileDir" scope="context" source="logback.logFileDir" defaultValue="./logs/${appName}"/>
+    <springProperty name="maxFileSize" scope="context" source="logback.maxFileSize" defaultValue="50MB"/>
+    <springProperty name="maxHistoryDay" scope="context" source="logback.maxHistoryDay" defaultValue="7"/>
+    <springProperty name="serverPort" scope="context" source="server.port" defaultValue="0000"/>
+
+    <property name="pattern"
+              value="${appName}:${serverPort} %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%X{traceId}] %thread %logger{50}:%L %msg%n"/>
+
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${pattern}</pattern>
+            <charset class="java.nio.charset.Charset">UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logFileDir}/${appName}.log</file>
+        <encoder>
+            <pattern>${pattern}</pattern>
+            <charset class="java.nio.charset.Charset">UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${logFileDir}/${appName}.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <MaxHistory>${maxHistoryDay}</MaxHistory>
+            <MaxFileSize>${maxFileSize}</MaxFileSize>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="fileAppender"/>
+    </root>
+
+</configuration>
