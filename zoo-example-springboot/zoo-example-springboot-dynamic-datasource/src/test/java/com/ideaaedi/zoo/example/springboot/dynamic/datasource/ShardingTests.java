@@ -10,7 +10,7 @@ import com.ideaaedi.zoo.example.springboot.dynamic.datasource.mapper.PayRecordMa
 import com.ideaaedi.zoo.example.springboot.dynamic.datasource.mapper.TransRecordMapper;
 import com.ideaaedi.zoo.example.springboot.dynamic.datasource.mapper.UserInfoMapper;
 import jakarta.annotation.Resource;
-import org.apache.shardingsphere.sharding.rule.ShardingRule;
+//import org.apache.shardingsphere.sharding.rule.ShardingRule;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
